@@ -20,6 +20,10 @@ public class Website {
         return new TablePage(this.driver);
     }
 
+    public String getCurrentURL(){
+        return driver.getCurrentUrl();
+    }
+
     public void quitDriver(){
         driver.quit();
     }
