@@ -45,6 +45,11 @@ public class FormPage {
     }
 
     public FormPage clickPartialLink(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.findElement(PartialLink).click();
         return this;
     }
@@ -54,11 +59,21 @@ public class FormPage {
     }
 
     public FormPage clickLink(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.findElement(Link).click();
         return this;
     }
 
     public String currentURL(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return driver.getCurrentUrl();
     }
 
