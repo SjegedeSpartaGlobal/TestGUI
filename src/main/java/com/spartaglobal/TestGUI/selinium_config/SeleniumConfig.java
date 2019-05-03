@@ -1,8 +1,23 @@
 package com.spartaglobal.TestGUI.selinium_config;
 
-public class SeleniumConfig {
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-    public SeleniumConfig() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\SJegede\\Documents\\chromedriver.exe");
+import java.util.concurrent.TimeUnit;
+
+public class SeleniumConfig {
+    private WebDriver driver;
+    private testGUIPropertiesReader testGUIProperties = new testGUIPropertiesReader();
+
+    public SeleniumConfig(String browserName) {
+        if(browserName.equalsIgnoreCase("chrome")) {
+            System.setProperty("webdriver.chrome.driver", testGUIProperties.getChromeDriverPath());
+            this.driver = new ChromeDriver();
+        }
+        this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 }
